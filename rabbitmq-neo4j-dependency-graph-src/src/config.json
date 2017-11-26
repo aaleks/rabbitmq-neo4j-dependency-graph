@@ -1,0 +1,13 @@
+{
+  "hostNeo4j": "localhost",
+  "portNeo4j": "7474",
+  "basicAuthNeo4j":"Basic bmVvNGo6bmVv=",
+  "cypherFolder" : "cyphers/",
+  "cypherQueues" : "import-queues.cypher",
+  "cypherExchanges" : "import-exchanges.cypher",
+  "cypherBindings" : "import-bindings.cypher",
+  "cypherShovel" : "import-shovel.cypher",
+  "rabbitBaseJSON" : "jsonfiles/rabbit_all.json",
+  "cypherEncoding" : "utf8",
+  "debug": true
+}

@@ -1,0 +1,149 @@
+{
+  "rabbit_version": "3.5.3",
+  "users": [
+    {
+      "name": "test",
+      "password_hash": "MXzhraJe1JT12AdpimeK80P2N+w=",
+      "tags": ""
+    },
+    {
+      "name": "testro",
+      "password_hash": "4RrlFJAvc1oDwQkJKAJf/q3iT+I=",
+      "tags": ""
+    },
+    {
+      "name": "guest",
+      "password_hash": "GI/2WXHSaZbl2SacL4/s5YTc4AE=",
+      "tags": "administrator"
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/"
+    },
+    {
+      "name": "test"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "test",
+      "vhost": "test",
+      "configure": "",
+      "write": ".*",
+      "read": ""
+    },
+    {
+      "user": "guest",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "guest",
+      "vhost": "test",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "testro",
+      "vhost": "test",
+      "configure": "",
+      "write": "",
+      "read": ".*"
+    }
+  ],
+  "parameters": [
+    {
+      "value": {
+        "src-uri": "amqp://",
+        "src-queue": "test",
+        "dest-uri": "amqp://test",
+        "dest-queue": "tt",
+        "add-forward-headers": false,
+        "ack-mode": "on-confirm",
+        "delete-after": "never"
+      },
+      "vhost": "/",
+      "component": "shovel",
+      "name": "shovel_transfert"
+    }
+  ],
+  "policies": [],
+  "queues": [
+    {
+      "name": "tt",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "test",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "ss",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "testqueue",
+      "vhost": "test",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "gg",
+      "vhost": "test",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "tt",
+      "vhost": "test",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "hutch",
+      "vhost": "/",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "rabbitExchange",
+      "vhost": "test",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "rabbitExchange",
+      "vhost": "test",
+      "destination": "tt",
+      "destination_type": "queue",
+      "routing_key": "#",
+      "arguments": {}
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+version: '2'
+services:
+ neo4j:
+  image: neo4j:3.2.5 # pull the latest image
+  environment:
+   - NEO4J_AUTH=neo4j/neo # configure the instance with custom username/password
+   - NEO4J_HEAP_MEMORY=2048 # configure the heap memory
+   - NEO4J_CACHE_MEMORY=1G # configure the cache memory
+   - EXTENSION_SCRIPT=extension/extension_script.sh
+   #- NEO4J_dbms_security_procedures_unrestricted=apoc.\\\*
+  ports:
+    - "7474:7474"
+    - "7687:7687"
+  volumes:
+    - $PWD/plugins:/plugins
+    - ./db/dbms:/data/dbms
+    - $PWD/jsonfiles:/jsonfiles
+    - $PWD/neo4j-ext:/var/lib/neo4j/extension
+#    - $PWD/neo4j.conf:/var/lib/neo4j/conf/neo4j.conf
+#  volumes:
+#    - $PWD/plugins:/var/lib/neo4j/plugins
+#    - ./db/dbms:/data/dbms # provision the volumes
