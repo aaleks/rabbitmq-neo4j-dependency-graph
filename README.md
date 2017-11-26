@@ -12,7 +12,7 @@ Links between queues - exchanges - bindings - shovels ...
 
 2 - Populate neo4j database with the JSON Broker definition in config.json
 
-cd rabbitmq-neo4j-dependency-graph-src/src/ && npm start
+cd rabbitmq-neo4j-dependency-graph-src/src/ && npm install && npm start
 
 ##### Config 
 rabbitmq-neo4j-dependency-graph-src/src/config.json (config variables) 
