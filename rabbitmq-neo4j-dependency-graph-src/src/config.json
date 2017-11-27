@@ -7,7 +7,8 @@
   "cypherExchanges" : "import-exchanges.cypher",
   "cypherBindings" : "import-bindings.cypher",
   "cypherShovel" : "import-shovel.cypher",
-  "rabbitBaseJSON" : "jsonfiles/rabbit_all.json",
+  "rabbitBaseJSON" : "jsonfiles/rabbit_rabbit1_2017-11-27.json",
   "cypherEncoding" : "utf8",
+  "amqpSeparator" : "amqp://",
   "debug": true
 }

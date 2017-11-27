@@ -1,5 +1,5 @@
 WITH {json} as data
-UNWIND data.queues as q CREATE (queues:Queues) SET queues = q , queues.display_name = q.name
+UNWIND data.queues as q CREATE (queues:Queues) SET queues = q , queues.type = "queue"
 
 //WITH {json} as data
 //UNWIND data.exchanges as e

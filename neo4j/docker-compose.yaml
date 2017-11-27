@@ -3,7 +3,7 @@ services:
  neo4j:
   image: neo4j:3.2.5 # pull the latest image
   environment:
-   - NEO4J_AUTH=neo4j/neo # configure the instance with custom username/password
+   - NEO4J_AUTH=none # configure the instance with custom username/password
    - NEO4J_HEAP_MEMORY=2048 # configure the heap memory
    - NEO4J_CACHE_MEMORY=1G # configure the cache memory
    - EXTENSION_SCRIPT=extension/extension_script.sh
