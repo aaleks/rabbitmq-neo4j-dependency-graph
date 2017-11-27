@@ -6,7 +6,7 @@ UNWIND data.parameters as s
 
 MATCH (source {name:s.value["src"], vhost:s.value["src-uri"]})
 MATCH (dest {name:s.value["dest"], vhost:s.value["dest-uri"]})
-CREATE (source)-[cs:SHOVEL {name:s.name, vhost: s.vhost, component:s.component}]->(dest)
-SET cs=s.value
+CREATE (source)-[cs:SHOVEL]->(dest)
+SET cs=s.value, cs.name=s.name, cs.vhost=s.vhost, cs.component=s.component
 //src_queue:s.value["src-queue"],dest_queue:s.value["dest-queue"],vhost_src:s.value["src-uri"],vhost_dst:s.value["dest-uri"]
 //MATCH p=()-[r:BINDING {vhost:"test"}]->() RETURN p LIMIT 25

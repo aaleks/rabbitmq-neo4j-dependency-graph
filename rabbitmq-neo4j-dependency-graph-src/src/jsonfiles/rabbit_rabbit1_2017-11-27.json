@@ -102,6 +102,17 @@
   "policies": [],
   "queues": [
     {
+      "name": "testqueueBis",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "rabbitExchange",
+        "x-message-ttl": 11,
+        "x-max-length": 10
+      }
+    },
+    {
       "name": "tt",
       "vhost": "/",
       "durable": true,

@@ -36,14 +36,36 @@ cypher("MATCH (n) DETACH DELETE n", {}, (err, result) => {
 
 /** remove the arguemnts **/
 /** TODO: need to rename the keys to : arguments.* **/
-json["queues"].forEach((item) => {
-    delete item.arguments;
-});
-
-json["exchanges"].forEach((itemEx) => {
+json["queues"].forEach((itemEx) => {
+    for (var k in itemEx.arguments){
+        itemEx["arguments."+k]=itemEx.arguments[k];
+    }
     delete itemEx.arguments;
 });
 
+json["exchanges"].forEach((itemEx) => {
+    //delete itemEx.arguments;
+    for (var k in itemEx.arguments){
+        itemEx["arguments."+k]=itemEx.arguments[k];
+    }
+    delete itemEx.arguments;
+});
+
+json["bindings"].forEach((itemEx) => {
+    for (var k in itemEx.arguments){
+        itemEx["arguments."+k]=itemEx.arguments[k];
+    }
+    delete itemEx.arguments;
+});
+
+/** can be done also for shovel
+json["parameters"].forEach((itemEx) => {
+    for (var k in itemEx.value){
+        itemEx["value."+k]=itemEx.value[k];
+    }
+    delete itemEx.arguments;
+});
+*/
 /** remove amqp:// part in src-uri to ease the check when using cypher **/
 json["parameters"].forEach((itemPar) => {
 
@@ -59,6 +81,7 @@ json["parameters"].forEach((itemPar) => {
         itemPar["value"]["dest-uri"] = itemPar["value"]["dest-uri"].split(CONFIGS.amqpSeparator)[1];
     }
 
+    //src and dest set to ease the relationship creating in import-shovel.cypher
     itemPar["value"]["src"] = (itemPar["value"]["src-queue"]!= undefined)?itemPar["value"]["src-queue"]:itemPar["value"]["src-exchange"]
     itemPar["value"]["dest"] = (itemPar["value"]["dest-queue"]!= undefined)?itemPar["value"]["dest-queue"]:itemPar["value"]["dest-exchange"]
 

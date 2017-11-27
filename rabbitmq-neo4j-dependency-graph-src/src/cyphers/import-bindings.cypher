@@ -5,6 +5,7 @@ UNWIND data.bindings as b
 //CREATE (ex)-[:BINDING]->(qq)
 MATCH (currentEx:Exchanges {name:b.source, vhost:b.vhost})
 MATCH (currentQueue:Queues {name:b.destination, vhost:b.vhost})
-CREATE (currentEx)-[:BINDING {source: b.source, destination:b.destination, vhost:b.vhost, routing_key: b.routing_key}]->(currentQueue)
+CREATE (currentEx)-[bd:BINDING]->(currentQueue)
+SET bd=b
 
 //MATCH p=()-[r:BINDING {vhost:"test"}]->() RETURN p LIMIT 25
