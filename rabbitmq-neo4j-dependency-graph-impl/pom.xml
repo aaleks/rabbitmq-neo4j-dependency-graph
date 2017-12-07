@@ -3,15 +3,17 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.rabbit.core.utils</groupId>
-    <version>1.0</version>
-
+    <parent>
+        <groupId>com.rabbit.core.utils</groupId>
+        <artifactId>rabbitmq-neo4j-dependency-graph</artifactId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
 
     <artifactId>rabbitmq-neo4j-dependency-graph-impl</artifactId>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
-
 
     <properties>
         <dockerImage.name>${project.name}</dockerImage.name>

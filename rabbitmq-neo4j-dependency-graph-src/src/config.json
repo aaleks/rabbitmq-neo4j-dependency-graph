@@ -7,8 +7,11 @@
   "cypherExchanges" : "import-exchanges.cypher",
   "cypherBindings" : "import-bindings.cypher",
   "cypherShovel" : "import-shovel.cypher",
-  "rabbitBaseJSON" : "jsonfiles/rabbit_rabbit1_2017-11-27.json",
+  "cypherUsersRead" : "import-users-read.cypher",
+  "cypherUsersWrite" : "import-users-writes.cypher",
+  "rabbitBaseJSON" : "jsonfiles/rabbit_rabbit1_withusers.json",
   "cypherEncoding" : "utf8",
   "amqpSeparator" : "amqp://",
+  "regexToRemove" : "|amq.default|amq.direct|amq.fanout|amq.headers|amq.match|amq.rabbitmq.trace|amq.topic",
   "debug": true
 }

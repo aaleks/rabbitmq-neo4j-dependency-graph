@@ -1,0 +1,92 @@
+{
+  "rabbit_version": "3.5.3",
+  "users": [
+    {
+      "name": "testVhost",
+      "password_hash": "mCi9OacrOuOYA1BH2kCeOx392KQ=",
+      "tags": "management"
+    },
+    {
+      "name": "guest",
+      "password_hash": "BDzwk0BAAjbpU2IWFmjmXqF864Y=",
+      "tags": "administrator"
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/"
+    },
+    {
+      "name": "test"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "guest",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "guest",
+      "vhost": "test",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "testVhost",
+      "vhost": "test",
+      "configure": "",
+      "write": "(firstqueue|secondtest|testExchange|amq.default|amq.direct|amq.fanout|amq.headers|amq.match|amq.rabbitmq.trace|amq.topic)",
+      "read": "(firstqueue|commonQueue)"
+    }
+  ],
+  "parameters": [],
+  "policies": [],
+  "queues": [
+    {
+      "name": "secondtest",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "secondtest",
+      "vhost": "test",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "firstqueue",
+      "vhost": "test",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "testExchange",
+      "vhost": "test",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "testExchange",
+      "vhost": "test",
+      "destination": "secondtest",
+      "destination_type": "queue",
+      "routing_key": "#",
+      "arguments": {}
+    }
+  ]
+}
