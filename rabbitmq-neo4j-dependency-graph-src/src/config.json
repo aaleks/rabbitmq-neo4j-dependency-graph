@@ -7,6 +7,7 @@
   "cypherExchanges" : "import-exchanges.cypher",
   "cypherBindings" : "import-bindings.cypher",
   "cypherShovel" : "import-shovel.cypher",
+  "cypherUsers" : "import-users.cypher",
   "cypherUsersRead" : "import-users-read.cypher",
   "cypherUsersWrite" : "import-users-writes.cypher",
   "rabbitBaseJSON" : "jsonfiles/rabbit_rabbit1_withusers.json",
